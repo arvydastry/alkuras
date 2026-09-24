@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apie įmonę — ALKURAS</title>
+<meta name="description" content="UAB „Alkuras“ nuo 2009 m. Technikos parkas, komanda, sertifikatai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://videos.pexels.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter+Tight:ital,wght@0,300..700;1,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0C0D'/%3E%3Cpath d='M6 24 16 8l10 16z' fill='%23D8F250'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="skip" href="#main">Pereiti prie turinio</a>
+<div class="prog"></div>
+
+<!-- KROVIMAS -->
+<div class="loader">
+  <div class="loader__inner">
+    <div class="loader__mark">
+      <span style="animation-delay:.02s">A</span><span style="animation-delay:.07s">L</span><span style="animation-delay:.12s">K</span><span style="animation-delay:.17s">U</span><span style="animation-delay:.22s">R</span><span style="animation-delay:.27s">A</span><span style="animation-delay:.32s">S</span>
+    </div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__pct">000</div>
+  </div>
+</div>
+
+<!-- ANTRAŠTĖ -->
+<header class="hdr hdr--over">
+  <div class="hdr__in">
+    <nav class="hdr__nav" aria-label="Pagrindinė">
+      <a href="karjerai.html" data-roll>Karjerai</a>
+      <a href="griovimas.html" data-roll>Griovimas</a>
+      <a href="smulkinimas.html" data-roll>Smulkinimas</a>
+      <a href="produkcija.html" data-mega data-roll>Produkcija</a>
+    </nav>
+    <a class="hdr__brand" href="index.html">ALKURAS</a>
+    <div class="hdr__util">
+      <a class="hdr__tel" href="tel:+37046032097">+370 460 32097</a>
+      <a class="hdr__ico" href="skaiciuokles.html" aria-label="Skaičiuoklės" data-cursor="Skaičiuoti">
+        <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h2m3 0h3M8 15h2m3 0h3M8 19h8"/></svg>
+      </a>
+      <a class="hdr__ico" href="kontaktai.html" aria-label="Kontaktai">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </a>
+      <button class="hdr__ico" data-open-cart aria-label="Krepšelis" data-cursor="Krepšelis">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+        <span class="hdr__badge" data-cart-count>0</span>
+      </button>
+      <button class="burger" aria-label="Meniu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- MEGA MENIU -->
+<div class="mega">
+  <div class="mega__grid">
+    <div>
+      <p class="eyebrow" style="margin-bottom:1.4rem">Produkcijos katalogas</p>
+      <div class="mega__list">
+        <a href="produkcija.html#zvyras" data-roll>Žvyras</a>
+        <a href="produkcija.html#smelis" data-roll>Smėlis</a>
+        <a href="produkcija.html#skalda" data-roll>Skalda</a>
+        <a href="produkcija.html#perdirbta" data-roll>Perdirbta</a>
+        <a href="produkcija.html#gruntas" data-roll>Gruntas</a>
+      </div>
+      <a class="ulink" href="produkcija.html" style="margin-top:1.8rem;display:inline-block">Visos medžiagos →</a>
+    </div>
+    <div class="mega__cards" data-mega-cards></div>
+  </div>
+</div>
+
+<!-- MOBILUS MENIU -->
+<nav class="mnav" aria-label="Mobilus meniu">
+  <a href="karjerai.html"><span>Karjerai</span></a>
+  <a href="griovimas.html"><span>Griovimas</span></a>
+  <a href="smulkinimas.html"><span>Smulkinimas</span></a>
+  <a href="produkcija.html"><span>Produkcija</span></a>
+  <a href="skaiciuokles.html"><span>Skaičiuoklės</span></a>
+  <a href="projektai.html"><span>Projektai</span></a>
+  <a href="apie.html"><span>Apie mus</span></a>
+  <a href="kontaktai.html"><span>Kontaktai</span></a>
+  <p style="margin-top:2.5rem" class="eyebrow">+370 460 32097 · info@alkuras.lt</p>
+</nav>
+
+<!-- KREPŠELIO SKYDELIS -->
+<div class="drawer">
+  <div class="drawer__bg" data-close-cart></div>
+  <aside class="drawer__panel" aria-label="Krepšelis">
+    <div class="drawer__hd">
+      <span class="eyebrow eyebrow--plain">Krepšelis</span>
+      <button data-close-cart aria-label="Uždaryti" style="font-size:1.4rem;line-height:1">×</button>
+    </div>
+    <div class="drawer__body" data-cart-items></div>
+    <div class="drawer__ft">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <span class="eyebrow eyebrow--plain">Medžiagų suma</span>
+        <b class="num" style="font-size:1.4rem" data-cart-total>0,00 €</b>
+      </div>
+      <p class="muted" style="font-size:.78rem;margin:0">Pristatymo kaina apskaičiuojama užsakymo metu pagal artimiausią karjerą ir atstumą.</p>
+      <a class="btn btn--solid" href="krepselis.html" style="justify-content:center"><span class="btn__fill"></span>Pereiti prie užsakymo <span class="btn__ico">→</span></a>
+    </div>
+  </aside>
+</div>
+
+<main id="main">
+
+<section class="phead">
+  <div class="phead__media" data-px=".2">
+    <video autoplay muted loop playsinline preload="none"
+      poster="https://images.pexels.com/videos/35649966/xcmg-35649966.jpeg?auto=compress&cs=tinysrgb&w=1400"
+      data-src="https://videos.pexels.com/video-files/35649966/15107550_1920_1080_50fps.mp4"></video>
+  </div>
+  <div class="phead__scrim"></div>
+  <div class="dust" data-n="20"></div>
+  <div class="grain"></div>
+  <div class="phead__in wrap">
+    <p class="crumbs"><a href="index.html">Pradžia</a> / Apie įmonę</p>
+    <h1 class="t-h1 display" data-mx="14" style="max-width:16ch">
+      <span class="rv-line" data-rv><span>Vietinė įmonė,</span></span>
+      <span class="rv-line" data-rv style="transition-delay:.08s"><span>sunki technika</span></span>
+    </h1>
+    <p class="lead rv-up" data-rv style="margin-top:1.6rem;max-width:54ch;color:rgba(239,235,227,.78)">
+      UAB „Alkuras“ nuo 2009 m. eksploatuoja karjerus, griauna pastatus ir perdirba statybines atliekas
+      Kretingos, Klaipėdos ir Šilutės rajonuose.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.35fr;gap:clamp(2rem,5vw,5rem);align-items:start">
+      <div><p class="eyebrow rv-fade" data-rv>Apie mus</p></div>
+      <div>
+        <h2 class="t-h2 rv-up" data-rv style="max-width:20ch">Uždaras ciklas viename kieme</h2>
+        <p class="lead rv-up" data-rv style="margin-top:1.4rem;max-width:58ch">
+          Ta pati technika, kuri nugriauna pastatą, čia pat susmulkina betoną į naudojamą frakciją.
+          Ta pati komanda ją pakrauna karjere ir atveža į kitą objektą. Būtent dėl to galime siūlyti
+          trumpesnius terminus ir kainą be tarpininkų.
+        </p>
+        <div class="figs" style="margin-top:clamp(2.5rem,5vw,4rem)">
+          <div class="fig"><div class="fig__n num" data-count="2009">0</div><div class="fig__l">veiklos pradžia</div></div>
+          <div class="fig"><div class="fig__n num" data-count="4">0</div><div class="fig__l">nuosavi karjerai</div></div>
+          <div class="fig"><div class="fig__n num" data-count="20" data-suffix="+">0</div><div class="fig__l">technikos vienetų</div></div>
+          <div class="fig"><div class="fig__n num" data-count="3" data-suffix=" r.">0</div><div class="fig__l">pagrindiniai rajonai</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush">
+  <div class="grid" style="grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--ink)">
+    <div class="exc" data-exc="140" style="aspect-ratio:3/4;min-height:38vh">
+      <div class="exc__base"><img src="https://images.pexels.com/photos/8961524/pexels-photo-8961524.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
+      <div class="exc__over" style="background-image:url(https://images.pexels.com/photos/8961524/pexels-photo-8961524.jpeg?auto=compress&cs=tinysrgb&w=900)"></div>
+      <div class="exc__ring"></div>
+    </div>
+    <div class="exc" data-exc="140" style="aspect-ratio:3/4;min-height:38vh">
+      <div class="exc__base"><video muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/35649966/15107549_1280_720_50fps.mp4"></video></div>
+      <div class="exc__over" style="background-image:url(https://images.pexels.com/photos/30751525/pexels-photo-30751525.jpeg?auto=compress&cs=tinysrgb&w=900)"></div>
+      <div class="exc__ring"></div>
+    </div>
+    <div class="exc" data-exc="140" style="aspect-ratio:3/4;min-height:38vh">
+      <div class="exc__base"><img src="https://images.pexels.com/photos/34670926/pexels-photo-34670926.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
+      <div class="exc__over" style="background-image:url(https://images.pexels.com/photos/34670926/pexels-photo-34670926.jpeg?auto=compress&cs=tinysrgb&w=900)"></div>
+      <div class="exc__ring"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section on-dark" style="background:var(--ink);overflow:hidden">
+  <div class="mq" data-speed=".5" style="margin-bottom:clamp(2.5rem,5vw,4.5rem)">
+    <div class="mq__row">
+      <span class="mq__i">KARJERAI<span class="mq__dot"></span></span>
+      <span class="mq__i">GRIOVIMAS<span class="mq__dot"></span></span>
+      <span class="mq__i">SMULKINIMAS<span class="mq__dot"></span></span>
+      <span class="mq__i">TRANSPORTAS<span class="mq__dot"></span></span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.6fr;gap:clamp(2rem,5vw,5rem);align-items:start">
+      <div>
+        <p class="eyebrow rv-fade" data-rv style="color:var(--signal)">Technikos parkas</p>
+        <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem">Ką turime savo</h2>
+        <p class="lead rv-up" data-rv style="margin-top:1.4rem;color:rgba(239,235,227,.72)">
+          Užveskite pelę ant eilutės — pamatysite techniką darbe.
+        </p>
+      </div>
+      <div data-machines></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.35fr;gap:clamp(2rem,5vw,5rem);align-items:start">
+      <div><p class="eyebrow rv-fade" data-rv>Rekvizitai</p></div>
+      <div>
+        <h2 class="t-h2 rv-up" data-rv style="max-width:18ch">Įmonės duomenys</h2>
+        <dl style="margin-top:2rem">
+          <div class="deliv__row"><dt>Pavadinimas</dt><dd>UAB „Alkuras“</dd></div>
+          <div class="deliv__row"><dt>Įmonės kodas</dt><dd>302312279</dd></div>
+          <div class="deliv__row"><dt>PVM kodas</dt><dd>LT100005138216</dd></div>
+          <div class="deliv__row"><dt>Registracijos adresas</dt><dd>Laukų g. 2, Asteikiai, Kretingos r.</dd></div>
+          <div class="deliv__row"><dt>Biuras</dt><dd>Medvalakio g. 27, Palanga</dd></div>
+          <div class="deliv__row"><dt>Veiklos pradžia</dt><dd>2009 m.</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="kontaktai.html" style="margin-top:2rem" data-magnet=".28"><span class="btn__fill"></span>Kontaktai ir žemėlapis <span class="btn__ico">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- PORAŠTĖ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__big" data-mx="10">ALKURAS</div>
+    <div class="ftr__grid">
+      <div>
+        <h4>Įmonė</h4>
+        <p class="soft" style="max-width:38ch;font-size:.95rem">
+          UAB „Alkuras“ — karjerų eksploatavimas, griovimo darbai ir statybinių atliekų smulkinimas Vakarų Lietuvoje nuo 2009 m.
+        </p>
+        <p class="eyebrow eyebrow--plain" style="margin-top:1.4rem">Įm. k. 302312279 · PVM LT100005138216</p>
+      </div>
+      <div>
+        <h4>Veiklos</h4>
+        <div class="ftr__list">
+          <a href="karjerai.html">Karjerai</a>
+          <a href="griovimas.html">Griovimo darbai</a>
+          <a href="smulkinimas.html">Smulkinimas</a>
+          <a href="produkcija.html">Produkcija</a>
+          <a href="skaiciuokles.html">Skaičiuoklės</a>
+        </div>
+      </div>
+      <div>
+        <h4>Karjerai</h4>
+        <div class="ftr__list">
+          <a href="karjerai.html#prudupis">Prūdupio</a>
+          <a href="karjerai.html#imbare">Imbarės</a>
+          <a href="karjerai.html#ruigiai">Ruigių</a>
+          <a href="karjerai.html#katyciai">Katyčių</a>
+          <a href="karjerai.html#kretinga">Smulkinimo aikštelė</a>
+        </div>
+      </div>
+      <div>
+        <h4>Kontaktai</h4>
+        <div class="ftr__list">
+          <a href="tel:+37046032097">+370 460 32097</a>
+          <a href="mailto:info@alkuras.lt">info@alkuras.lt</a>
+          <a href="kontaktai.html">Medvalakio g. 27, Palanga</a>
+          <a href="kontaktai.html">Laukų g. 2, Asteikiai, Kretingos r.</a>
+        </div>
+        <a class="btn btn--line" href="kontaktai.html" style="margin-top:1.6rem;border-color:rgba(239,235,227,.25)" data-magnet=".22"><span class="btn__fill"></span>Pateikti užklausą <span class="btn__ico">→</span></a>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <span>© 2026 UAB „Alkuras“</span>
+      <span>Dizainas ir kūrimas — <a href="https://www.simplex.lt" style="color:var(--signal)">Simplex.lt</a></span>
+      <span>Privatumas · Slapukai · Taisyklės</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/page.js"></script>
+</body>
+</html>

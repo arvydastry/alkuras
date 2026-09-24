@@ -1,0 +1,65 @@
+
+<section data-single style="padding-top:clamp(7rem,12vw,10rem)">
+  <div class="wrap">
+    <p class="crumbs" style="color:var(--fg-mute)"><a href="index.html">Pradžia</a> / <a href="produkcija.html">Produkcija</a> / <span data-s-name></span></p>
+    <div class="grid" style="grid-template-columns:1.15fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;margin-top:1.5rem">
+      <div data-s-gallery data-rv class="rv-curtain"></div>
+      <div>
+        <span class="chip chip--sig" data-s-frac></span>
+        <h1 class="t-h1 display rv-up" data-rv data-s-name style="margin-top:1.2rem;font-size:clamp(2.2rem,4.6vw,3.6rem)"></h1>
+        <p class="lead rv-up" data-rv data-s-desc style="margin-top:1.2rem"></p>
+
+        <div style="display:flex;align-items:baseline;gap:.6rem;margin-top:2rem">
+          <b class="num display" style="font-size:clamp(2rem,4vw,3rem)" data-s-price></b>
+          <span class="eyebrow eyebrow--plain">/ tona su PVM</span>
+        </div>
+
+        <div style="margin-top:2rem">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span class="eyebrow eyebrow--plain">Kiekis</span>
+            <b class="num" data-s-qty-l>10 t</b>
+          </div>
+          <input class="range" type="range" min="1" max="120" step="1" value="10" data-s-qty>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)">
+            <span class="eyebrow eyebrow--plain">Medžiagų suma</span>
+            <b class="num" style="font-size:1.3rem" data-s-sum></b>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.8rem">
+          <button class="btn btn--solid" data-s-add data-magnet=".28"><span class="btn__fill"></span>Į krepšelį <span class="btn__ico">→</span></button>
+          <a class="btn btn--line" href="skaiciuokles.html">Skaičiuoti kiekį</a>
+        </div>
+
+        <dl style="margin-top:2.6rem" data-s-specs></dl>
+
+        <div class="chip" style="margin-top:1.6rem">Pristatymas skaičiuojamas krepšelyje pagal artimiausią karjerą</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pxs on-dark" style="margin-top:clamp(4rem,8vw,7rem)">
+  <div class="pxs__bg" data-px=".16">
+    <video autoplay muted loop playsinline preload="none"
+      poster="https://images.pexels.com/videos/30911560/pexels-photo-30911560.jpeg?auto=compress&cs=tinysrgb&w=1400"
+      data-src="https://videos.pexels.com/video-files/30911560/13223284_1280_720_30fps.mp4"></video>
+  </div>
+  <div class="pxs__scrim"></div>
+  <div class="pxs__in wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.45fr;gap:clamp(2rem,5vw,5rem);align-items:center">
+      <div>
+        <p class="eyebrow rv-fade" data-rv style="color:var(--signal)">Logistika</p>
+        <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem">Pristatymo kaina iki jūsų objekto</h2>
+      </div>
+      <div class="deliv rv-up" data-deliv data-rv></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="t-h3 rv-up" data-rv style="margin-bottom:clamp(1.5rem,3vw,2.5rem)">Taip pat gali tikti</h2>
+    <div class="grid g-4" data-s-related data-stagger="90"></div>
+  </div>
+</section>

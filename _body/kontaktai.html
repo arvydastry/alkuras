@@ -1,0 +1,68 @@
+
+<section class="phead" style="min-height:50vh">
+  <div class="phead__media" data-px=".2">
+    <video autoplay muted loop playsinline preload="none"
+      poster="https://images.pexels.com/videos/17275464/pexels-photo-17275464.jpeg?auto=compress&cs=tinysrgb&w=1400"
+      data-src="https://videos.pexels.com/video-files/17275464/17275464-hd_1920_1080_30fps.mp4"></video>
+  </div>
+  <div class="phead__scrim"></div>
+  <div class="grain"></div>
+  <div class="phead__in wrap">
+    <p class="crumbs"><a href="index.html">Pradžia</a> / Kontaktai</p>
+    <h1 class="t-h1 display" data-mx="12" style="max-width:14ch">
+      <span class="rv-line" data-rv><span>Susisiekime</span></span>
+    </h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:start">
+      <div>
+        <p class="eyebrow rv-fade" data-rv>Kontaktai</p>
+        <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem;max-width:16ch">Vienas atsakingas kontaktas</h2>
+        <dl style="margin-top:2.2rem">
+          <div class="deliv__row"><dt>Telefonas</dt><dd><a href="tel:+37046032097">+370 460 32097</a></dd></div>
+          <div class="deliv__row"><dt>El. paštas</dt><dd><a href="mailto:info@alkuras.lt">info@alkuras.lt</a></dd></div>
+          <div class="deliv__row"><dt>Biuras</dt><dd>Medvalakio g. 27, Palanga</dd></div>
+          <div class="deliv__row"><dt>Registracijos adresas</dt><dd>Laukų g. 2, Asteikiai, Kretingos r.</dd></div>
+          <div class="deliv__row"><dt>Darbo laikas</dt><dd>I–V 8:00–17:00</dd></div>
+        </dl>
+      </div>
+      <form data-demo-form class="grid" style="gap:1.6rem">
+        <div class="grid g-2" style="gap:1.6rem">
+          <label class="field"><input type="text" placeholder=" " required><label>Vardas, pavardė</label></label>
+          <label class="field"><input type="tel" placeholder=" " required><label>Telefonas</label></label>
+        </div>
+        <label class="field"><input type="email" placeholder=" " required><label>El. paštas</label></label>
+        <label class="field field--sel"><select required>
+          <option value="" selected disabled></option>
+          <option>Medžiagų užsakymas</option>
+          <option>Griovimo darbai</option>
+          <option>Smulkinimas objekte</option>
+          <option>Technikos nuoma</option>
+          <option>Kita</option>
+        </select><label>Paslauga</label></label>
+        <label class="field"><textarea placeholder=" " required></textarea><label>Žinutė</label></label>
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center">
+          <label class="chip" style="cursor:pointer"><input type="file" class="sr" multiple> + Prisegti failus</label>
+          <button type="submit" class="btn btn--solid" data-magnet=".3"><span class="btn__fill"></span>Siųsti užklausą <span class="btn__ico">→</span></button>
+        </div>
+        <p class="muted" style="font-size:.78rem;margin:0">Apsauga nuo brukalo įjungta. Duomenys tvarkomi pagal privatumo politiką.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bone-2)">
+  <div class="wrap">
+    <div style="max-width:44ch;margin-bottom:clamp(2rem,4vw,3rem)">
+      <p class="eyebrow rv-fade" data-rv>Lokacijos</p>
+      <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem">Karjerai žemėlapyje</h2>
+    </div>
+    <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start">
+      <div class="deliv__map rv-up" data-rv data-map-only="imbare" style="aspect-ratio:4/3.4;position:sticky;top:7rem"></div>
+      <div data-quarry-list></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+
+<section data-cartpage style="padding-top:clamp(7rem,12vw,10rem);padding-bottom:var(--sec)">
+  <div class="wrap">
+    <p class="crumbs" style="color:var(--fg-mute)"><a href="index.html">Pradžia</a> / Krepšelis</p>
+    <h1 class="t-h1 display rv-up" data-rv style="margin-top:1rem;font-size:clamp(2.2rem,5vw,4rem)">Užsakymas</h1>
+
+    <div class="grid" style="grid-template-columns:1.4fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start;margin-top:clamp(2rem,4vw,3.5rem)">
+      <div>
+        <div data-cp-list></div>
+
+        <h2 class="t-h3" style="margin-top:clamp(2.5rem,5vw,4rem)">Pristatymas</h2>
+        <div class="grid g-2" style="gap:1.6rem;margin-top:1.5rem">
+          <label class="field field--sel"><select data-cp-city>
+            <option>Kretinga</option><option>Palanga</option><option selected>Klaipėda</option>
+            <option>Šilutė</option><option>Plungė</option><option>Skuodas</option><option>Telšiai</option>
+            <option>Šiauliai</option><option>Tauragė</option><option>Kaunas</option><option>Vilnius</option>
+          </select><label>Miestas</label></label>
+          <label class="field"><input type="text" placeholder=" "><label>Gatvė, namo nr.</label></label>
+        </div>
+        <div class="grid g-2" style="gap:1.6rem;margin-top:1.2rem">
+          <label class="field"><input type="text" placeholder=" "><label>Vardas, pavardė / įmonė</label></label>
+          <label class="field"><input type="tel" placeholder=" "><label>Telefonas</label></label>
+        </div>
+        <label class="field" style="margin-top:1.2rem"><input type="email" placeholder=" "><label>El. paštas sąskaitai</label></label>
+
+        <h2 class="t-h3" style="margin-top:clamp(2.5rem,5vw,4rem)">Apmokėjimas</h2>
+        <div class="seg" style="margin-top:1.2rem">
+          <button class="on">Paysera</button>
+          <button>Montonio</button>
+          <button>Bankiniu pavedimu</button>
+        </div>
+      </div>
+
+      <aside style="position:sticky;top:7rem;background:var(--paper);box-shadow:var(--sh-3);padding:clamp(1.4rem,2.6vw,2.2rem)">
+        <p class="eyebrow eyebrow--plain">Užsakymo suvestinė</p>
+        <dl style="margin-top:1.4rem">
+          <div class="deliv__row"><dt>Bendras svoris</dt><dd data-cp-tons>—</dd></div>
+          <div class="deliv__row"><dt>Artimiausias karjeras</dt><dd data-cp-q>—</dd></div>
+          <div class="deliv__row"><dt>Atstumas</dt><dd data-cp-km>—</dd></div>
+          <div class="deliv__row"><dt>Medžiagos</dt><dd data-cp-goods>—</dd></div>
+          <div class="deliv__row"><dt>Pristatymas</dt><dd data-cp-del>—</dd></div>
+        </dl>
+        <div class="deliv__total" style="margin-top:1.4rem">
+          <span class="eyebrow eyebrow--plain" style="color:rgba(239,235,227,.6)">Iš viso su PVM</span>
+          <b class="num flip" data-cp-total>0,00 €</b>
+        </div>
+        <button class="btn btn--signal" data-magnet=".3" style="width:100%;justify-content:center;margin-top:1.4rem"
+          onclick="window.alkToast('Demonstracinis režimas — mokėjimo integracija diegiama <b>programavimo etape</b>')">
+          <span class="btn__fill"></span>Apmokėti <span class="btn__ico">→</span>
+        </button>
+        <p class="muted" style="font-size:.78rem;margin-top:1rem">Sąskaita faktūra išrašoma automatiškai ir išsiunčiama el. paštu.</p>
+      </aside>
+    </div>
+  </div>
+</section>

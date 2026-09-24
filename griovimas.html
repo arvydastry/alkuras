@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Griovimo darbai — ALKURAS</title>
+<meta name="description" content="Pastatų ir statinių griovimas, teritorijų paruošimas, atliekų tvarkymas. Preliminari kaina — per 30 sekundžių.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://videos.pexels.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter+Tight:ital,wght@0,300..700;1,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0C0D'/%3E%3Cpath d='M6 24 16 8l10 16z' fill='%23D8F250'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="skip" href="#main">Pereiti prie turinio</a>
+<div class="prog"></div>
+
+<!-- KROVIMAS -->
+<div class="loader">
+  <div class="loader__inner">
+    <div class="loader__mark">
+      <span style="animation-delay:.02s">A</span><span style="animation-delay:.07s">L</span><span style="animation-delay:.12s">K</span><span style="animation-delay:.17s">U</span><span style="animation-delay:.22s">R</span><span style="animation-delay:.27s">A</span><span style="animation-delay:.32s">S</span>
+    </div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__pct">000</div>
+  </div>
+</div>
+
+<!-- ANTRAŠTĖ -->
+<header class="hdr hdr--over">
+  <div class="hdr__in">
+    <nav class="hdr__nav" aria-label="Pagrindinė">
+      <a href="karjerai.html" data-roll>Karjerai</a>
+      <a href="griovimas.html" data-roll>Griovimas</a>
+      <a href="smulkinimas.html" data-roll>Smulkinimas</a>
+      <a href="produkcija.html" data-mega data-roll>Produkcija</a>
+    </nav>
+    <a class="hdr__brand" href="index.html">ALKURAS</a>
+    <div class="hdr__util">
+      <a class="hdr__tel" href="tel:+37046032097">+370 460 32097</a>
+      <a class="hdr__ico" href="skaiciuokles.html" aria-label="Skaičiuoklės" data-cursor="Skaičiuoti">
+        <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h2m3 0h3M8 15h2m3 0h3M8 19h8"/></svg>
+      </a>
+      <a class="hdr__ico" href="kontaktai.html" aria-label="Kontaktai">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </a>
+      <button class="hdr__ico" data-open-cart aria-label="Krepšelis" data-cursor="Krepšelis">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+        <span class="hdr__badge" data-cart-count>0</span>
+      </button>
+      <button class="burger" aria-label="Meniu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- MEGA MENIU -->
+<div class="mega">
+  <div class="mega__grid">
+    <div>
+      <p class="eyebrow" style="margin-bottom:1.4rem">Produkcijos katalogas</p>
+      <div class="mega__list">
+        <a href="produkcija.html#zvyras" data-roll>Žvyras</a>
+        <a href="produkcija.html#smelis" data-roll>Smėlis</a>
+        <a href="produkcija.html#skalda" data-roll>Skalda</a>
+        <a href="produkcija.html#perdirbta" data-roll>Perdirbta</a>
+        <a href="produkcija.html#gruntas" data-roll>Gruntas</a>
+      </div>
+      <a class="ulink" href="produkcija.html" style="margin-top:1.8rem;display:inline-block">Visos medžiagos →</a>
+    </div>
+    <div class="mega__cards" data-mega-cards></div>
+  </div>
+</div>
+
+<!-- MOBILUS MENIU -->
+<nav class="mnav" aria-label="Mobilus meniu">
+  <a href="karjerai.html"><span>Karjerai</span></a>
+  <a href="griovimas.html"><span>Griovimas</span></a>
+  <a href="smulkinimas.html"><span>Smulkinimas</span></a>
+  <a href="produkcija.html"><span>Produkcija</span></a>
+  <a href="skaiciuokles.html"><span>Skaičiuoklės</span></a>
+  <a href="projektai.html"><span>Projektai</span></a>
+  <a href="apie.html"><span>Apie mus</span></a>
+  <a href="kontaktai.html"><span>Kontaktai</span></a>
+  <p style="margin-top:2.5rem" class="eyebrow">+370 460 32097 · info@alkuras.lt</p>
+</nav>
+
+<!-- KREPŠELIO SKYDELIS -->
+<div class="drawer">
+  <div class="drawer__bg" data-close-cart></div>
+  <aside class="drawer__panel" aria-label="Krepšelis">
+    <div class="drawer__hd">
+      <span class="eyebrow eyebrow--plain">Krepšelis</span>
+      <button data-close-cart aria-label="Uždaryti" style="font-size:1.4rem;line-height:1">×</button>
+    </div>
+    <div class="drawer__body" data-cart-items></div>
+    <div class="drawer__ft">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <span class="eyebrow eyebrow--plain">Medžiagų suma</span>
+        <b class="num" style="font-size:1.4rem" data-cart-total>0,00 €</b>
+      </div>
+      <p class="muted" style="font-size:.78rem;margin:0">Pristatymo kaina apskaičiuojama užsakymo metu pagal artimiausią karjerą ir atstumą.</p>
+      <a class="btn btn--solid" href="krepselis.html" style="justify-content:center"><span class="btn__fill"></span>Pereiti prie užsakymo <span class="btn__ico">→</span></a>
+    </div>
+  </aside>
+</div>
+
+<main id="main">
+
+<section class="phead">
+  <div class="phead__media" data-px=".2">
+    <video autoplay muted loop playsinline preload="none"
+      poster="https://images.pexels.com/videos/34241190/bnc-company-bnc-demolition-bnc-engineers-breaking-building-34241190.jpeg?auto=compress&cs=tinysrgb&w=1400"
+      data-src="https://videos.pexels.com/video-files/34241190/14511141_1920_1080_60fps.mp4"></video>
+  </div>
+  <div class="phead__scrim"></div>
+  <div class="dust" data-n="26"></div>
+  <div class="grain"></div>
+  <div class="phead__in wrap">
+    <p class="crumbs"><a href="index.html">Pradžia</a> / Griovimo darbai</p>
+    <h1 class="t-h1 display" data-mx="14" style="max-width:13ch">
+      <span class="rv-line" data-rv><span>Griovimo</span></span>
+      <span class="rv-line" data-rv style="transition-delay:.08s"><span>darbai</span></span>
+    </h1>
+    <p class="lead rv-up" data-rv style="margin-top:1.6rem;max-width:54ch;color:rgba(239,235,227,.78)">
+      Nuo pavienio ūkinio pastato iki gamybinio komplekso. Griauname, išrūšiuojame,
+      susmulkiname vietoje ir paruošiame teritoriją tolimesnei statybai — su visa atliekų apskaita.
+    </p>
+    <div class="hero__cta rv-up" data-rv style="margin-top:2rem">
+      <a class="btn btn--signal" href="#skaiciuokle" data-magnet=".28"><span class="btn__fill"></span>Skaičiuoti kainą <span class="btn__ico">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.35fr;gap:clamp(2rem,5vw,5rem);align-items:start">
+      <div><p class="eyebrow rv-fade" data-rv>Ką dirbame</p></div>
+      <div>
+        <h2 class="t-h2 rv-up" data-rv style="max-width:20ch">Griovimas be papildomų rangovų</h2>
+        <p class="lead rv-up" data-rv style="margin-top:1.4rem;max-width:56ch">
+          Ta pati įmonė atveža techniką, nugriauna, atskiria metalą, susmulkina betoną ir išveža likutį.
+          Klientui lieka vienas kontaktas ir viena sąskaita.
+        </p>
+        <div class="mach" style="margin-top:clamp(2rem,4vw,3rem)" data-services></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush">
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:2px;background:var(--ink)">
+    <div class="exc" data-exc="170" style="aspect-ratio:1/1;min-height:44vh">
+      <div class="exc__base"><video muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/10971670/10971670-hd_1280_720_60fps.mp4"></video></div>
+      <div class="exc__over" style="background-image:url(https://images.pexels.com/photos/38975495/pexels-photo-38975495.jpeg?auto=compress&cs=tinysrgb&w=1400)"></div>
+      <div class="exc__ring"></div>
+      <span class="vtext__cap" style="left:1.5rem;bottom:1.5rem;z-index:5">Užveskite — atidengsite kadrą</span>
+    </div>
+    <div class="exc" data-exc="170" style="aspect-ratio:1/1;min-height:44vh">
+      <div class="exc__base"><video muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/36752521/15576094_1280_720_30fps.mp4"></video></div>
+      <div class="exc__over" style="background-image:url(https://images.pexels.com/photos/15304083/pexels-photo-15304083.jpeg?auto=compress&cs=tinysrgb&w=1400)"></div>
+      <div class="exc__ring"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skaiciuokle" style="background:var(--bone-2)">
+  <div class="wrap">
+    <div style="max-width:48ch;margin-bottom:clamp(2rem,4vw,3.4rem)">
+      <p class="eyebrow rv-fade" data-rv>Skaičiuoklė</p>
+      <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem">Preliminari griovimo kaina per 30 sekundžių</h2>
+      <p class="lead rv-up" data-rv style="margin-top:1.2rem">
+        Pasirinkite objekto tipą, konstrukciją ir plotą. Rezultatas — orientacinis intervalas,
+        kurį patikslinsime apžiūrėję objektą.
+      </p>
+    </div>
+    <div class="calc rv-up" data-calc-demo data-rv></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(2rem,4vw,3.4rem)">
+      <div style="max-width:40ch">
+        <p class="eyebrow rv-fade" data-rv>Portfolio</p>
+        <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem">Įvykdyti griovimo objektai</h2>
+      </div>
+      <a class="ulink" href="projektai.html">Visi projektai</a>
+    </div>
+    <div class="folio" data-projects data-limit="4"></div>
+  </div>
+</section>
+
+<section class="section pxs on-dark">
+  <div class="pxs__bg" data-px=".16">
+    <video autoplay muted loop playsinline preload="none"
+      poster="https://images.pexels.com/videos/35649966/xcmg-35649966.jpeg?auto=compress&cs=tinysrgb&w=1400"
+      data-src="https://videos.pexels.com/video-files/35649966/15107549_1280_720_50fps.mp4"></video>
+  </div>
+  <div class="pxs__scrim"></div>
+  <div class="pxs__in wrap">
+    <div class="grid" style="grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,5rem)">
+      <div>
+        <p class="eyebrow rv-fade" data-rv style="color:var(--signal)">Užklausa</p>
+        <h2 class="t-h2 rv-up" data-rv style="margin-top:1rem">Turite objektą? Atvyksime apžiūrėti</h2>
+        <p class="lead rv-up" data-rv style="margin-top:1.4rem;color:rgba(239,235,227,.72);max-width:42ch">
+          Prisekite nuotraukas ar planus — dažnai to pakanka tiksliam pasiūlymui be išvykos.
+        </p>
+      </div>
+      <form data-demo-form class="grid" style="gap:1.6rem">
+        <div class="grid g-2" style="gap:1.6rem">
+          <label class="field"><input type="text" placeholder=" " required><label>Vardas</label></label>
+          <label class="field"><input type="tel" placeholder=" " required><label>Telefonas</label></label>
+        </div>
+        <label class="field"><input type="text" placeholder=" " required><label>Objekto adresas</label></label>
+        <label class="field"><textarea placeholder=" " required></textarea><label>Objekto tipas, plotas, terminai</label></label>
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center">
+          <label class="chip" style="cursor:pointer;border-color:rgba(239,235,227,.25)"><input type="file" class="sr" multiple> + Prisegti failus</label>
+          <button type="submit" class="btn btn--signal" data-magnet=".3"><span class="btn__fill"></span>Siųsti <span class="btn__ico">→</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- PORAŠTĖ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__big" data-mx="10">ALKURAS</div>
+    <div class="ftr__grid">
+      <div>
+        <h4>Įmonė</h4>
+        <p class="soft" style="max-width:38ch;font-size:.95rem">
+          UAB „Alkuras“ — karjerų eksploatavimas, griovimo darbai ir statybinių atliekų smulkinimas Vakarų Lietuvoje nuo 2009 m.
+        </p>
+        <p class="eyebrow eyebrow--plain" style="margin-top:1.4rem">Įm. k. 302312279 · PVM LT100005138216</p>
+      </div>
+      <div>
+        <h4>Veiklos</h4>
+        <div class="ftr__list">
+          <a href="karjerai.html">Karjerai</a>
+          <a href="griovimas.html">Griovimo darbai</a>
+          <a href="smulkinimas.html">Smulkinimas</a>
+          <a href="produkcija.html">Produkcija</a>
+          <a href="skaiciuokles.html">Skaičiuoklės</a>
+        </div>
+      </div>
+      <div>
+        <h4>Karjerai</h4>
+        <div class="ftr__list">
+          <a href="karjerai.html#prudupis">Prūdupio</a>
+          <a href="karjerai.html#imbare">Imbarės</a>
+          <a href="karjerai.html#ruigiai">Ruigių</a>
+          <a href="karjerai.html#katyciai">Katyčių</a>
+          <a href="karjerai.html#kretinga">Smulkinimo aikštelė</a>
+        </div>
+      </div>
+      <div>
+        <h4>Kontaktai</h4>
+        <div class="ftr__list">
+          <a href="tel:+37046032097">+370 460 32097</a>
+          <a href="mailto:info@alkuras.lt">info@alkuras.lt</a>
+          <a href="kontaktai.html">Medvalakio g. 27, Palanga</a>
+          <a href="kontaktai.html">Laukų g. 2, Asteikiai, Kretingos r.</a>
+        </div>
+        <a class="btn btn--line" href="kontaktai.html" style="margin-top:1.6rem;border-color:rgba(239,235,227,.25)" data-magnet=".22"><span class="btn__fill"></span>Pateikti užklausą <span class="btn__ico">→</span></a>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <span>© 2026 UAB „Alkuras“</span>
+      <span>Dizainas ir kūrimas — <a href="https://www.simplex.lt" style="color:var(--signal)">Simplex.lt</a></span>
+      <span>Privatumas · Slapukai · Taisyklės</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/page.js"></script>
+</body>
+</html>
