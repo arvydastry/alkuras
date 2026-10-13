@@ -1,0 +1,299 @@
+/* ==========================================================================
+   ALKURAS — WordPress ir WooCommerce stiliai
+   (dizaino sistema yra base.css + components.css; čia tik WP specifika)
+   ========================================================================== */
+
+/* ---------- Administratoriaus juosta ---------- */
+.admin-bar .hdr{ top:32px; }
+.admin-bar .mega{ top:32px; }
+.admin-bar .hero{ min-height:calc(100svh - 32px); }
+.admin-bar .mnav,.admin-bar .drawer{ top:32px; }
+@media screen and (max-width:782px){
+  .admin-bar .hdr{ top:46px; }
+  .admin-bar .hero{ min-height:calc(100svh - 46px); }
+  .admin-bar .mnav,.admin-bar .drawer{ top:46px; }
+}
+
+/* ---------- Meniu nuorodos antraštėje ---------- */
+.hdr__link{ position:relative; }
+.hdr__link.is-current::after{
+  content:""; position:absolute; left:0; right:0; bottom:-.4em; height:1px;
+  background:var(--signal);
+}
+
+/* Filtro juosta su nuorodomis (ne mygtukais) */
+.seg a{
+  display:inline-flex; align-items:center;
+  padding:.72em 1.15em; border:1px solid var(--line); border-radius:100px;
+  font-family:var(--f-mono); font-size:var(--t-micro); letter-spacing:.1em; text-transform:uppercase;
+  position:relative; overflow:hidden; isolation:isolate;
+  transition:color .4s var(--e-out), border-color .4s, background .4s;
+}
+.seg a::before{
+  content:""; position:absolute; inset:0; z-index:-1; background:var(--ink);
+  transform:scale(0); border-radius:100px; transition:transform .5s var(--e-out);
+}
+.seg a:hover::before{ transform:scale(1); }
+.seg a:hover{ color:var(--bone); border-color:var(--ink); }
+.seg a.on{ background:var(--ink); color:var(--bone); border-color:var(--ink); }
+
+/* ---------- Turinio tipografija (Gutenberg) ---------- */
+.alk-content{ font-size:clamp(1rem,1.05vw,1.125rem); }
+.alk-content > *{ margin-block:0 1.25em; }
+.alk-content > *:last-child{ margin-bottom:0; }
+.alk-content h2{
+  font-size:var(--t-h2); margin-block:clamp(2.5rem,5vw,4rem) 1rem; max-width:22ch;
+}
+.alk-content h3{ font-size:var(--t-h3); margin-block:clamp(2rem,3.5vw,3rem) .8rem; }
+.alk-content h4{ font-size:var(--t-h4); margin-block:2rem .6rem; }
+.alk-content p{ max-width:68ch; color:var(--fg-soft); }
+.alk-content strong{ color:var(--fg); font-weight:600; }
+.alk-content a:not(.btn):not(.ulink){
+  color:inherit; text-decoration:underline; text-decoration-thickness:1px;
+  text-underline-offset:.22em; text-decoration-color:var(--line);
+  transition:text-decoration-color .35s var(--e-out), color .35s;
+}
+.alk-content a:not(.btn):not(.ulink):hover{ color:var(--signal-ink); text-decoration-color:var(--signal); background:var(--signal); }
+.alk-content ul,.alk-content ol{ max-width:62ch; padding-left:1.2em; color:var(--fg-soft); }
+.alk-content li{ margin-bottom:.5em; }
+.alk-content ul{ list-style:none; padding-left:0; }
+.alk-content ul li{ position:relative; padding-left:1.6em; }
+.alk-content ul li::before{
+  content:""; position:absolute; left:.2em; top:.62em; width:.5em; height:1px; background:var(--signal-2);
+}
+.alk-content blockquote{
+  margin:clamp(2rem,4vw,3rem) 0; padding-left:clamp(1.2rem,2.5vw,2rem);
+  border-left:2px solid var(--signal); font-size:1.15em; color:var(--fg);
+}
+.alk-content img,.alk-content figure{ border-radius:2px; }
+.alk-content figure{ margin-block:clamp(2rem,4vw,3rem); }
+.alk-content figcaption{
+  font-family:var(--f-mono); font-size:var(--t-micro); letter-spacing:.12em;
+  text-transform:uppercase; color:var(--fg-mute); margin-top:.8rem;
+}
+.alk-content hr{ border:0; height:1px; background:var(--line); margin-block:clamp(2.5rem,5vw,4rem); }
+.alk-content table{ width:100%; border-collapse:collapse; font-size:.95rem; }
+.alk-content th,.alk-content td{ padding:.9em 1em; border-bottom:1px solid var(--line); text-align:left; }
+.alk-content th{ font-family:var(--f-mono); font-size:var(--t-micro); letter-spacing:.14em; text-transform:uppercase; color:var(--fg-mute); }
+.alk-content .alignwide{ width:min(100%,1400px); margin-inline:auto; }
+.alk-content .alignfull{ width:100vw; margin-left:calc(50% - 50vw); max-width:none; }
+
+/* Trumpųjų kodų blokai turinyje — be pastraipų tarpų */
+.alk-content .calc,.alk-content .deliv,.alk-content .folio,
+.alk-content .mach,.alk-content .acts,.alk-content .rail{ margin-block:clamp(2rem,4vw,3rem); }
+.alk-content .deliv__map{ margin-block:clamp(2rem,4vw,3rem); }
+
+/* ---------- Puslapiavimas ---------- */
+.pagination,.woocommerce-pagination{ display:flex; justify-content:center; }
+.page-numbers{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:44px; height:44px; padding:0 .8em; margin:0 .2em;
+  border:1px solid var(--line); border-radius:100px;
+  font-family:var(--f-mono); font-size:var(--t-small);
+  transition:background .4s var(--e-out), color .4s, border-color .4s, transform .4s var(--e-spring);
+}
+.page-numbers:hover{ background:var(--ink); color:var(--bone); border-color:var(--ink); transform:translateY(-2px); }
+.page-numbers.current{ background:var(--signal); border-color:var(--signal); color:var(--signal-ink); }
+.woocommerce-pagination ul{ display:flex; list-style:none; margin:0; padding:0; gap:.2em; }
+
+/* ---------- WooCommerce bendra ---------- */
+.woocommerce-message,.woocommerce-info,.woocommerce-error,.woocommerce-notice{
+  list-style:none; margin:0 0 1.5rem; padding:1.1rem 1.4rem;
+  background:var(--paper); border-left:3px solid var(--signal);
+  box-shadow:var(--sh-1); font-size:.95rem;
+}
+.woocommerce-error{ border-left-color:var(--c-griovimas); }
+.woocommerce-message .button,.woocommerce-info .button{ float:right; }
+
+.woocommerce .button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce a.button,
+.woocommerce #respond input#submit{
+  display:inline-flex; align-items:center; gap:.6em;
+  padding:1.05em 1.9em; border:0; border-radius:100px; cursor:pointer;
+  background:var(--ink); color:var(--bone);
+  font-family:var(--f-mono); font-size:var(--t-small);
+  letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
+  transition:background .4s var(--e-out), color .4s var(--e-out), transform .4s var(--e-spring), box-shadow .4s;
+  box-shadow:var(--sh-2);
+}
+.woocommerce .button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce a.button:hover,
+.woocommerce #respond input#submit:hover{
+  background:var(--signal); color:var(--signal-ink); transform:translateY(-2px); box-shadow:var(--sh-3);
+}
+.woocommerce .button.alt,
+.woocommerce button.button.alt{ background:var(--signal); color:var(--signal-ink); }
+.woocommerce .button.alt:hover,
+.woocommerce button.button.alt:hover{ background:var(--ink); color:var(--bone); }
+.woocommerce .button:disabled,
+.woocommerce .button.disabled{ opacity:.45; pointer-events:none; }
+
+.alk-unit{ font-family:var(--f-mono); font-size:.6em; letter-spacing:.1em; color:var(--fg-mute); }
+
+/* Kiekio laukelis */
+.woocommerce .quantity{ display:inline-flex; align-items:center; }
+.woocommerce .quantity .qty{
+  width:5.5rem; padding:.9em .6em; text-align:center;
+  background:transparent; border:1px solid var(--line); border-radius:100px;
+  font-family:var(--f-mono); font-size:var(--t-small);
+}
+.alk-cart-form form.cart{ display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; }
+.alk-cart-form .quantity{ display:none; }   /* kiekis valdomas slankikliu */
+
+/* ---------- Krepšelio lentelė ---------- */
+.woocommerce table.shop_table{
+  width:100%; border-collapse:collapse; background:var(--paper);
+  box-shadow:var(--sh-1); margin-bottom:2rem;
+}
+.woocommerce table.shop_table th{
+  padding:1.1rem 1.2rem; text-align:left; border-bottom:1px solid var(--line);
+  font-family:var(--f-mono); font-size:var(--t-micro); letter-spacing:.14em;
+  text-transform:uppercase; color:var(--fg-mute); font-weight:500;
+}
+.woocommerce table.shop_table td{
+  padding:1.2rem; border-bottom:1px solid var(--line-soft); vertical-align:middle;
+}
+.woocommerce table.shop_table img{ width:80px; height:80px; object-fit:cover; }
+.woocommerce table.shop_table .product-name a{ font-family:var(--f-display); font-weight:700; letter-spacing:-.02em; }
+.woocommerce table.shop_table .product-name a:hover{ color:var(--signal-ink); background:var(--signal); }
+.woocommerce a.remove{
+  display:inline-grid; place-items:center; width:30px; height:30px; border-radius:50%;
+  color:var(--fg-mute); font-size:1.1rem; line-height:1; text-decoration:none;
+  transition:background .3s, color .3s;
+}
+.woocommerce a.remove:hover{ background:var(--c-griovimas); color:var(--bone); }
+
+.woocommerce .cart-collaterals,
+.woocommerce-cart .cart-collaterals .cart_totals{ width:100%; }
+.woocommerce .cart_totals h2{ font-size:var(--t-h3); margin-bottom:1.2rem; }
+.woocommerce .cart_totals table{ background:var(--paper); box-shadow:var(--sh-2); }
+.woocommerce .cart_totals .order-total .amount{
+  font-family:var(--f-display); font-size:1.6rem; font-weight:800; letter-spacing:-.03em;
+}
+.woocommerce .wc-proceed-to-checkout{ margin-top:1.4rem; }
+.woocommerce .wc-proceed-to-checkout .button{ width:100%; justify-content:center; }
+
+.woocommerce ul#shipping_method{ list-style:none; margin:0; padding:0; display:grid; gap:.6rem; }
+.woocommerce ul#shipping_method li{ display:flex; gap:.6rem; align-items:flex-start; font-size:.92rem; }
+.woocommerce .shipping-calculator-button{
+  font-family:var(--f-mono); font-size:var(--t-micro); letter-spacing:.1em; text-transform:uppercase;
+}
+
+/* ---------- Atsiskaitymas ---------- */
+.woocommerce-checkout .col2-set{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,3vw,3rem); }
+@media (max-width:860px){ .woocommerce-checkout .col2-set{ grid-template-columns:1fr; } }
+.woocommerce-checkout h3,
+.woocommerce-checkout #order_review_heading{ font-size:var(--t-h3); margin:clamp(2rem,4vw,3rem) 0 1.4rem; }
+.woocommerce form .form-row{ display:flex; flex-direction:column; margin-bottom:1.2rem; }
+.woocommerce form .form-row label{
+  font-family:var(--f-mono); font-size:var(--t-micro); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--fg-mute); margin-bottom:.5rem;
+}
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select,
+.woocommerce .select2-container .select2-selection--single{
+  width:100%; padding:.95em 0; background:transparent;
+  border:0; border-bottom:1px solid var(--line); border-radius:0;
+  font-size:1rem; transition:border-color .4s var(--e-out);
+  height:auto;
+}
+.woocommerce form .form-row input.input-text:focus,
+.woocommerce form .form-row textarea:focus,
+.woocommerce form .form-row select:focus{ border-bottom-color:var(--signal); outline:none; }
+.woocommerce .select2-container .select2-selection--single .select2-selection__rendered{ padding:0; line-height:inherit; }
+.woocommerce .select2-container .select2-selection--single .select2-selection__arrow{ top:50%; transform:translateY(-50%); }
+.woocommerce-checkout #payment{ background:var(--paper); box-shadow:var(--sh-2); padding:clamp(1.2rem,2.4vw,2rem); margin-top:1.5rem; }
+.woocommerce-checkout #payment ul.payment_methods{ list-style:none; margin:0 0 1.4rem; padding:0; display:grid; gap:.8rem; }
+.woocommerce-checkout #payment ul.payment_methods li{ display:flex; gap:.6rem; align-items:flex-start; }
+.woocommerce-checkout #payment .payment_box{
+  background:var(--bone-2); padding:1rem 1.2rem; font-size:.88rem; color:var(--fg-soft);
+  grid-column:1/-1; margin-top:.4rem;
+}
+.woocommerce-checkout #place_order{ width:100%; justify-content:center; }
+.woocommerce-privacy-policy-text{ font-size:.82rem; color:var(--fg-mute); }
+
+/* Užsakymo patvirtinimas */
+.woocommerce-order{ max-width:72ch; }
+.woocommerce ul.order_details{
+  list-style:none; margin:2rem 0; padding:0;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(10rem,1fr)); gap:1rem;
+}
+.woocommerce ul.order_details li{
+  padding-top:1rem; border-top:1px solid var(--line);
+  font-family:var(--f-mono); font-size:var(--t-micro);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--fg-mute);
+}
+.woocommerce ul.order_details li strong{
+  display:block; margin-top:.5rem; font-family:var(--f-display); font-size:1.3rem;
+  letter-spacing:-.02em; text-transform:none; color:var(--fg);
+}
+
+/* Rūšiavimas */
+.woocommerce .woocommerce-ordering select{
+  padding:.7em 2em .7em 1em; border:1px solid var(--line); border-radius:100px;
+  background:transparent; font-family:var(--f-mono); font-size:var(--t-micro);
+  letter-spacing:.1em; text-transform:uppercase;
+}
+
+/* Tuščias krepšelis */
+.woocommerce .cart-empty{ font-size:1.2rem; }
+.woocommerce .return-to-shop{ margin-top:1.5rem; }
+
+/* ---------- Formos pranešimas ---------- */
+.alk-sent{
+  background:var(--signal); color:var(--signal-ink);
+  padding:1.1rem 1.4rem; border-radius:2px; margin-bottom:1.5rem;
+  font-family:var(--f-mono); font-size:var(--t-small); letter-spacing:.04em;
+}
+
+/* ---------- Mygtuko „užimta“ būsena ---------- */
+.btn.is-busy{ opacity:.6; pointer-events:none; }
+
+/* ---------- Komentarai (nenaudojami, bet tvarkingi) ---------- */
+.comment-respond{ margin-top:3rem; }
+.comment-form textarea,.comment-form input{
+  width:100%; padding:.9em 0; background:transparent;
+  border:0; border-bottom:1px solid var(--line);
+}
+
+
+/* ---------- Mygtukai ant tamsaus fono ---------- */
+.ftr .btn--line,
+.on-dark .btn--line,
+.pxs .btn--line,
+.phead .btn--line,
+.hero .btn--line{
+  color:var(--bone); border-color:rgba(239,235,227,.28);
+}
+.ftr .btn--line:hover,
+.on-dark .btn--line:hover,
+.pxs .btn--line:hover,
+.phead .btn--line:hover,
+.hero .btn--line:hover{ color:var(--signal-ink); border-color:transparent; }
+
+/* ---------- Poraštės apatinė eilutė ---------- */
+.ftr__mini{ display:flex; flex-wrap:wrap; gap:1.2rem; }
+.ftr__mini a{ transition:color .3s; }
+.ftr__mini a:hover{ color:var(--signal); }
+
+/* ---------- Krepšelio išdėstymas ---------- */
+.woocommerce-cart .alk-content{ display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(1.5rem,3vw,3rem); align-items:start; }
+.woocommerce-cart .alk-content > .woocommerce{ grid-column:1/-1; display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(1.5rem,3vw,3rem); align-items:start; }
+.woocommerce-cart .woocommerce-cart-form{ min-width:0; }
+.woocommerce-cart .cart-collaterals{ position:sticky; top:7rem; }
+.woocommerce-cart .cart_totals{ background:var(--paper); box-shadow:var(--sh-3); padding:clamp(1.3rem,2.4vw,2rem); }
+.woocommerce-cart .cart_totals table{ box-shadow:none; }
+@media (max-width:900px){
+  .woocommerce-cart .alk-content,
+  .woocommerce-cart .alk-content > .woocommerce{ grid-template-columns:1fr; }
+  .woocommerce-cart .cart-collaterals{ position:static; }
+}
+.woocommerce-cart .woocommerce-notices-wrapper{ grid-column:1/-1; }
+.woocommerce .actions .coupon{ display:flex; gap:.6rem; flex-wrap:wrap; align-items:center; }
+.woocommerce .actions .coupon input{ padding:.9em 1.2em; border:1px solid var(--line); border-radius:100px; background:transparent; }
+.woocommerce table.cart td.actions{ padding-top:1.4rem; }

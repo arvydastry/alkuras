@@ -1,0 +1,61 @@
+name: alkuras
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_PORT:-8099}:80"
+    environment: &wpenv
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('WP_MEMORY_LIMIT', '512M');
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+    volumes: &wpvol
+      - wp:/var/www/html
+      - ./wp-content/themes/alkuras:/var/www/html/wp-content/themes/alkuras
+      - ./wp-content/plugins/alkuras-core:/var/www/html/wp-content/plugins/alkuras-core
+  cli:
+    image: wordpress:cli-php8.3
+    depends_on:
+      wordpress:
+        condition: service_started
+      db:
+        condition: service_healthy
+    user: "33:33"
+    environment: *wpenv
+    volumes: *wpvol
+    entrypoint: ["wp"]
+    command: ["--info"]
+    profiles: ["cli"]
+  mailpit:
+    image: axllent/mailpit
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_PORT:-8028}:8025"
+volumes:
+  db:
+  wp:

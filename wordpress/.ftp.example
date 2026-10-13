@@ -1,0 +1,6 @@
+# Nukopijuokite į .ftp ir įrašykite savo duomenis.
+# Šis failas į Git nekeliamas.
+FTP_HOST=ftp.serveriai.lt
+FTP_USER=
+FTP_PASS=
+FTP_PATH=/domains/alkuras.lt/public_html

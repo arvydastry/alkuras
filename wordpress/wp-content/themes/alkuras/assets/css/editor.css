@@ -1,0 +1,17 @@
+/* Redaktoriaus stiliai — kad turinys atrodytų panašiai kaip svetainėje. */
+.editor-styles-wrapper{
+  background:#EFEBE3;
+  font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  color:#0B0C0D;
+}
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4{
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-weight:700; letter-spacing:-.03em; line-height:1.02;
+}
+.editor-styles-wrapper h2{ font-size:2.4rem; }
+.editor-styles-wrapper h3{ font-size:1.6rem; }
+.editor-styles-wrapper p{ max-width:68ch; color:#55524B; }
+.editor-styles-wrapper .wp-block-quote{ border-left:2px solid #D8F250; padding-left:1.2rem; }
