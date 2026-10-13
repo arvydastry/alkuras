@@ -1,3 +1,5 @@
 .env
 .ftp
 dist/
+.deploy-notes.md
+deploy/
