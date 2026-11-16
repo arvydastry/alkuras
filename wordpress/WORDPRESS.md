@@ -128,50 +128,66 @@ esami įrašai atnaujinami, dublikatų nekuriama.
 
 Nuotraukos ir video — **Pexels**, tik demonstracijai.
 
-## 8. Perkėlimas į serverį (liputis.serveriai.lt)
+## 8. Perkėlimas į serverį
 
-Įkelti reikia dviejų katalogų:
+### Hostinger (per SSH — rekomenduojama)
 
+Diegimas automatizuotas. Prisijungimai laikomi `wordpress/.hostinger` faile,
+kurio į Git nekeliame; per pokalbį slaptažodžiai nekeliauja.
+
+**Paruošimas (vieną kartą):**
+
+1. hPanel → Išplėstinė → **SSH prieiga** → įjungti; nukopijuoti host, port, vartotoją
+2. hPanel → **SSH raktai** → įkelti `wordpress/.ssh/alkuras_deploy.pub` turinį
+3. hPanel → **Duomenų bazės → MySQL** → sukurti bazę ir vartotoją
+4. Nukopijuoti `.hostinger.example` į `.hostinger` ir užpildyti
+
+**Diegimas:**
+
+```bash
+cd wordpress
+./build-release.sh              # surenka release/ ir dist/alkuras-db.sql iš lokalaus WP
+./deploy-hostinger.sh check     # patikrina SSH, PHP, mysql, vietą
+./deploy-hostinger.sh all       # failai + wp-config + DB + apsauga + patikra
 ```
-wp-content/themes/alkuras/
-wp-content/plugins/alkuras-core/
+
+Atskiros komandos:
+
+| Komanda | Ką daro |
+|---|---|
+| `check` | SSH prisijungimas, serverio aplinka, katalogas, vieta |
+| `files` | `rsync` — tik pasikeitę failai |
+| `config` | sugeneruoja `wp-config.php` su naujais salts ir `.htaccess` |
+| `db` | importuoja `dist/alkuras-db.sql` per `mysql` |
+| `lock` / `unlock` | uždeda / nuima slaptažodžio apsaugą |
+| `verify` | patikrina puslapius per HTTP |
+
+**Vėlesni atnaujinimai** — pakeitus temą ar įskiepį:
+
+```bash
+./build-release.sh && ./deploy-hostinger.sh files
 ```
 
-Paruošti ZIP archyvai yra `wordpress/dist/`:
+Duomenų bazės tada liesti nereikia.
+
+### Rankinis būdas (bet koks hostingas)
+
+ZIP archyvai yra `wordpress/dist/`:
 
 - `alkuras-theme.zip` → Išvaizda → Temos → Pridėti naują → Įkelti temą
 - `alkuras-core.zip` → Įskiepiai → Pridėti naują → Įkelti įskiepį
+- `alkuras-db.sql` → phpMyAdmin → pasirinkti bazę → Import
 
 Po įdiegimo:
 
-1. Aktyvuoti įskiepį **Alkuras Core**, tada temą **Alkuras**.
-2. Įdiegti **WooCommerce**, pasirinkti Lietuvą ir EUR.
-3. **Alkuras → Demo turinys** (arba iš karto kelti tikrą turinį).
-4. **WooCommerce → Pristatymas** → sukurti zoną „Lietuva“ ir pridėti „Pristatymas iš karjero“.
-5. Nuorodų struktūra: **Nuostatos → Nuolatinės nuorodos → Įrašo pavadinimas**.
-6. **Alkuras → Nustatymai** — suvesti tikrus įkainius ir zonas.
+1. Aktyvuoti įskiepį **Alkuras Core**, tada temą **Alkuras**
+2. Įdiegti **WooCommerce**, pasirinkti Lietuvą ir EUR
+3. **Alkuras → Demo turinys** (jei pradedate nuo tuščios bazės)
+4. **WooCommerce → Pristatymas** → zona „Lietuva" + „Pristatymas iš karjero"
+5. **Nuostatos → Nuolatinės nuorodos → Įrašo pavadinimas**
+6. **Alkuras → Nustatymai** — suvesti tikrus įkainius ir zonas
 
 Reikalavimai: PHP 8.0+, WordPress 6.4+ (patikrinta su 7.1), WooCommerce 9+.
-
-### FTP
-
-Kai bus laikas kelti, paruošiau `deploy.sh`. Prisijungimus **įrašykite patys** į
-`wordpress/.ftp` (šis failas į Git nekeliamas) — aš jų nematau ir neprašau chat'e:
-
-```
-FTP_HOST=ftp.serveriai.lt
-FTP_USER=jusu_vartotojas
-FTP_PASS=jusu_slaptazodis
-FTP_PATH=/domains/alkuras.lt/public_html
-```
-
-Tada:
-
-```bash
-cd wordpress && ./deploy.sh
-```
-
-Skriptas įkelia tik temą ir įskiepį (duomenų bazės neliečia).
 
 ## 9. Kas dar liks padaryti prieš paleidimą
 

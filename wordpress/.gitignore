@@ -3,3 +3,6 @@
 dist/
 .deploy-notes.md
 deploy/
+.hostinger
+.ssh/
+release/

@@ -1,0 +1,20 @@
+# Nukopijuokite šį failą į .hostinger ir užpildykite.
+# Failas į Git nekeliamas. Duomenis rasite Hostinger hPanel.
+
+# --- SSH (hPanel → Išplėstinė → SSH prieiga) ---
+SSH_HOST=
+SSH_PORT=65002
+SSH_USER=
+
+# --- Svetainės katalogas serveryje ---
+# Hostinger'yje paprastai: /home/uXXXXXXXX/domains/alkuras.lt/public_html
+REMOTE_PATH=
+
+# --- Duomenų bazė (hPanel → Duomenų bazės → MySQL) ---
+DB_NAME=
+DB_USER=
+DB_PASS=
+DB_HOST=localhost
+
+# --- Svetainės adresas ---
+SITE_URL=https://alkuras.lt
