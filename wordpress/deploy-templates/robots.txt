@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap bus įjungtas atidarius visą svetainę:
+# Sitemap: https://alkuras.lt/wp-sitemap.xml
