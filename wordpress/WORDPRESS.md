@@ -170,6 +170,20 @@ Atskiros komandos:
 
 Duomenų bazės tada liesti nereikia.
 
+### Hostinger ypatumai (patikrinta praktikoje)
+
+Diegiant į Hostinger paaiškėjo keli dalykai, kurie skiriasi nuo įprasto hostingo:
+
+| Dalykas | Kaip yra | Ką darome |
+|---|---|---|
+| WordPress branduolys | Bendrinamas per symlink'us į `/opt/h5g/flavors/wp-X.Y.Z`, atnaujina Hostinger | Branduolio nekeliame — tik `wp-content` |
+| `wp-config.php` | Sugeneruotas Hostinger su teisingais DB duomenimis | Savo neversti — naudoti esamą |
+| Namų katalogas (`~`) | Tik skaitymui | Laikini failai — į `public_html/.alk-tmp` |
+| `wp-content/mu-plugins` | Nerašomas, valdomas Hostinger | Savo įskiepius dėti į `wp-content/plugins` |
+| `.htaccess` `AuthType Basic` | **Neveikia** — serveris `hws` grąžina 200 net su blogu slaptažodžiu | Apsauga per įskiepį `alkuras-maintenance` |
+| LiteSpeed talpykla | Atiduoda senus puslapius apeidama PHP ir `.htaccess` | Po kiekvieno diegimo — `./deploy-hostinger.sh purge` |
+| `wp db export` | Neveikia (PHP `exec()` išjungtas) | Atsarginę kopiją daryti per hPanel |
+
 ### Rankinis būdas (bet koks hostingas)
 
 ZIP archyvai yra `wordpress/dist/`:

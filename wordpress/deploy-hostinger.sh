@@ -10,8 +10,12 @@
 #   ./deploy-hostinger.sh files    rsync: tema, įskiepiai, medija
 #   ./deploy-hostinger.sh db       duomenų bazės importas (wp db import)
 #   ./deploy-hostinger.sh setup    temos/įskiepių aktyvavimas, nuorodos
-#   ./deploy-hostinger.sh lock     slaptažodžio apsauga
-#   ./deploy-hostinger.sh unlock   apsaugos nuėmimas
+#   ./deploy-hostinger.sh lock     uždaro svetainę (įskiepis alkuras-maintenance)
+#   ./deploy-hostinger.sh unlock   atidaro viešai
+#
+# PASTABA: Hostinger serveris (hws) nepalaiko .htaccess AuthType Basic —
+# grąžina 200 net su neteisingu slaptažodžiu. Todėl apsauga daroma per
+# WordPress įskiepį, o ne per .htpasswd.
 #   ./deploy-hostinger.sh verify   patikra per HTTP (apeinant DNS)
 #   ./deploy-hostinger.sh all      viskas iš eilės
 # =============================================================================
@@ -28,6 +32,7 @@ SSH_PORT="${SSH_PORT:-65002}"
 SITE_URL="${SITE_URL:-https://alkuras.lt}"
 HOST_IP="$SSH_HOST"
 SSH_OPTS="-i $KEY -p $SSH_PORT -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+SCP_OPTS="-i $KEY -P $SSH_PORT -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
 REMOTE="$SSH_USER@$SSH_HOST"
 WP="cd '$REMOTE_PATH' && wp"
 
@@ -53,6 +58,9 @@ cmd_files() {
   say "Įskiepis alkuras-core"
   rs --delete release/wp-content/plugins/alkuras-core/ "$REMOTE:$REMOTE_PATH/wp-content/plugins/alkuras-core/"
 
+  say "Įskiepis alkuras-maintenance (laikina apsauga)"
+  rs --delete release/wp-content/plugins/alkuras-maintenance/ "$REMOTE:$REMOTE_PATH/wp-content/plugins/alkuras-maintenance/"
+
   say "WooCommerce"
   rs --delete release/wp-content/plugins/woocommerce/ "$REMOTE:$REMOTE_PATH/wp-content/plugins/woocommerce/"
 
@@ -73,7 +81,7 @@ cmd_db() {
   say "Atsarginė esamos bazės kopija"
   run "$WP db export '$TMP/pries-importa.sql' --quiet && echo '  padaryta'"
   mkdir -p deploy/backup
-  scp $SSH_OPTS -q "$REMOTE:$TMP/pries-importa.sql" deploy/backup/db-pries-importa.sql 2>/dev/null \
+  scp $SCP_OPTS -q "$REMOTE:$TMP/pries-importa.sql" deploy/backup/db-pries-importa.sql 2>/dev/null \
     && echo "  parsisiųsta: deploy/backup/db-pries-importa.sql"
 
   say "Importuojama duomenų bazė ($(du -h dist/alkuras-db.sql | cut -f1))"
@@ -103,25 +111,27 @@ cmd_setup() {
 
 # -----------------------------------------------------------------------------
 cmd_lock() {
-  say "Uždedama slaptažodžio apsauga"
-  scp $SSH_OPTS -q deploy/.htpasswd "$REMOTE:$REMOTE_PATH/.htpasswd"
-  sed "s#AUTH_PATH_PLACEHOLDER#$REMOTE_PATH/.htpasswd#" deploy/htaccess-locked | \
-    ssh $SSH_OPTS "$REMOTE" "cat > '$REMOTE_PATH/.htaccess'"
-  run "mkdir -p '$REMOTE_PATH/.well-known' && printf 'Satisfy any\nRequire all granted\n' > '$REMOTE_PATH/.well-known/.htaccess'; chmod 644 '$REMOTE_PATH/.htaccess' '$REMOTE_PATH/.htpasswd'; echo '  uždaryta (vartotojas: alkuras)'"
+  say "Uždaroma svetainė (įskiepis alkuras-maintenance)"
+  run "cd '$REMOTE_PATH' && wp plugin activate alkuras-maintenance --quiet && echo '  uždaryta — svečiai mato „svetainė ruošiama“'"
+  cmd_purge
 }
 
 cmd_unlock() {
-  say "Nuimama slaptažodžio apsauga"
-  scp $SSH_OPTS -q deploy/htaccess-public "$REMOTE:$REMOTE_PATH/.htaccess"
-  run "rm -f '$REMOTE_PATH/.htpasswd'; echo '  svetainė vieša'"
+  say "Svetainė daroma vieša"
+  run "cd '$REMOTE_PATH' && wp plugin deactivate alkuras-maintenance --quiet && wp option update blog_public 1 --quiet && echo '  vieša, indeksavimas įjungtas'"
+  cmd_purge
+}
+
+cmd_purge() {
+  say "Valoma talpykla"
+  run "cd '$REMOTE_PATH' && wp cache flush --quiet 2>/dev/null; wp transient delete --all --quiet 2>/dev/null; rm -rf wp-content/litespeed/* wp-content/cache/* 2>/dev/null; echo '  išvalyta'"
 }
 
 # -----------------------------------------------------------------------------
 cmd_verify() {
   say "Patikra per serverio IP (apeinant DNS, nes domenas dar rodo į seną hostingą)"
-  local auth=""
-  [ -f deploy/.htpasswd-plain ] && auth="-u alkuras:$(cat deploy/.htpasswd-plain)"
   local host="${SITE_URL#https://}"; host="${host#http://}"
+  local auth=""
   for p in "/" "/karjerai/" "/produkcija/" "/skaiciuokles/" "/preke/skalda-4-16/" "/krepselis/" "/wp-login.php"; do
     printf "  %-24s " "$p"
     curl -sk -o /dev/null -w "%{http_code}\n" --max-time 30 \
@@ -140,7 +150,8 @@ case "${1:-check}" in
   setup)  cmd_setup ;;
   lock)   cmd_lock ;;
   unlock) cmd_unlock ;;
+  purge)  cmd_purge ;;
   verify) cmd_verify ;;
   all)    cmd_files; cmd_db; cmd_setup; cmd_lock; cmd_verify ;;
-  *)      echo "check | files | db | setup | lock | unlock | verify | all"; exit 1 ;;
+  *)      echo "check | files | db | setup | lock | unlock | purge | verify | all"; exit 1 ;;
 esac
