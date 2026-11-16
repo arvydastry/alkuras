@@ -52,6 +52,10 @@ cmd_check() {
 cmd_files() {
   [ -d release/wp-content ] || { echo "Nerastas release/ — paleiskite ./build-release.sh"; exit 1; }
 
+  # apsaugos įskiepis — iš versijuojamo šablono
+  mkdir -p release/wp-content/plugins/alkuras-maintenance
+  cp deploy-templates/alkuras-maintenance.php release/wp-content/plugins/alkuras-maintenance/
+
   say "Tema alkuras"
   rs --delete release/wp-content/themes/alkuras/ "$REMOTE:$REMOTE_PATH/wp-content/themes/alkuras/"
 
